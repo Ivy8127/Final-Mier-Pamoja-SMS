@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Headers-->
+{%include 'base/header.html'%}
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+    <!--Navbar-->
+    {%include 'base/navbar.html'%}
+
+        <!--Sidebar-->
+        {%include 'base/sidebar.html'%}
+
+            <main class="main">
+            <!--Breadcrumb-->
+            {%include 'base/breadcrumb.html'%}
+
+                <!--Page contents-->
+
+                {%block content%}
+                {%endblock%}
+            </main>
+    </div>
+<!--Footer-->
+{%include 'base/footer.html'%}
+
+<!--Javascript-->
+{%include 'base/js.html'%}
+    
+</body>
+</html>
