@@ -45,7 +45,10 @@ class PersonalInfo(models.Model):
 
     class Meta:
         verbose_name_plural = 'Personal Information'
-
+    @property
+    def image_url(self):
+        if self.photo and hasattr(self.photo,'url'):
+            return self.photo.url
 
 
 class AcademicInfo(models.Model):
@@ -60,17 +63,16 @@ class AcademicInfo(models.Model):
     class_info = models.ForeignKey(ClassInfo , on_delete=models.CASCADE)
     registration_no = models.IntegerField(unique=True,default = random.randint(000000,999999))
     personalInfo = models.ForeignKey(PersonalInfo, on_delete= models.CASCADE ,null = True,max_length =6)
-    is_in_session = models.BooleanField(default=False)
+    is_delete = models.BooleanField(default=False)
     date = models.DateField(auto_now_add=True)
     status_select =(
-        ('Enrolled','Enrolled'),
-        ('Not Enrolled','Not Enrolled')
+        ('enrolled','Enrolled'),
+        ('not enrolled','Not Enrolled')
     )
     status = models.CharField(max_length = 20 ,choices = status_select, default ='Not Enrolled')
 
     def __str__(self):
-        """Returns a student's personal info
-
+        """Returns a student's academic info
         Returns:
             [type] -- [description]
         """
@@ -85,11 +87,13 @@ class EnrolledStudent(models.Model):
     Arguments:
         models {[type]} -- [description]
     """
-    name = models.ForeignKey(PersonalInfo,on_delete=models.CASCADE,default ='name',null=True)
-    class_name = models.ForeignKey(ClassRegistration , on_delete=models.CASCADE)
-    student_registration_number = models.OneToOneField(AcademicInfo ,on_delete=models.CASCADE)
+    class_name = models.ForeignKey(ClassRegistration,on_delete=models.CASCADE)
+    student = models.OneToOneField(AcademicInfo,on_delete=models.CASCADE)
+    roll = models.IntegerField(default = 000000)
     date = models.DateField(auto_now_add=True)
+    class Meta:
+        unique_together = ['class_name','roll']
     
     def __str__(self):
-        return str(self.name)
+        return str(self.roll)
     

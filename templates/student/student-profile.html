@@ -1,0 +1,45 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block content%}
+<div class="card">
+    <div class="card-header">
+        
+        <div class="row">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                         src="C:/Users/Supreme Computers/Desktop/My Django Projects/static/dist/img/user4-128x128.jpg"
+                         alt="User profile picture">
+                  </div>
+  
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <h2 class="mx-auto">Personal Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Name                        :  {{student.personalInfo.name}}</pre>
+            <pre>Date of birth               :  {{student.personalInfo.date_of_birth}} </pre>
+            <pre>Gender                      :  {{student.personalInfo.gender}}</pre>
+            <pre>Phone number                :  {{student.personalInfo.phone_no}}</pre>
+            <pre>Email                       :  {{student.personalInfo.email}}</pre>
+            <pre>Religion                    :  {{student.personalInfo.religion}}</pre>
+            <pre>Birth Certificate Number    :  {{student.personalInfo.birth_certificate_no}}</pre>
+        </div><div class="row">
+            <h2 class="mx-auto">Academic Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Class                : {{student.class_info}}</pre>
+            <pre>Registration number  : {{student.registration_no}}</pre>
+        </div>
+
+    </div>
+</div>
+
+{%endblock%}

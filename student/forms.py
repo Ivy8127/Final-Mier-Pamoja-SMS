@@ -22,27 +22,23 @@ class PersonalInfoForm(forms.ModelForm):
 class AcademicInfoForm(forms.ModelForm):
     class Meta:
         model = AcademicInfo
-        exclude = ['date','personalInfo','status','is_in_session']
+        exclude = ['date','personalInfo','status','is_delete']
         widgets = {
             'class_info': forms.Select(attrs={'class':'form-control'}),
-            'registration_no': forms.NumberInput(attrs={'class':'form-control'}),
-            'is_in_session': forms.CheckboxInput(attrs={'class':'form-control'}),
+            
         }
 
-class EnrolledStudentForm(forms.ModelForm):
-    model = EnrolledStudent
-    fields = ['__all__']
-    widgets = {
-            'name' : forms.TextInput(attrs={'class':'form-control'}),
-            'class_name' : forms.TextInput(attrs={'class':'form-control'}),
-            'student_registration_no' : forms.NumberInput(attrs={'class':'form-control'}),
-            'status' : forms.Select(attrs={'class':'form-control'}),
-            'date' : forms.SelectDateWidget(attrs={'class':'form-control'}),
+class EnrolledStudentForm(forms.Form):
+    class_name = forms.ModelChoiceField(queryset=ClassInfo.objects.all())
 
-        }
-    
+
+
 
 class StudentEnrollForm(forms.Form):
     class_name = forms.ModelChoiceField(queryset=ClassRegistration.objects.all())
-    student_registration_no = forms.IntegerField(widget = forms.NumberInput(attrs={'class':'form-control'}))
-        
+    roll_no = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'Enter roll','class':'form-control'}))
+
+
+class SearchEnrolledStudentForm(forms.Form):
+    reg_class = forms.ModelChoiceField(queryset=ClassRegistration.objects.all())
+    roll_no = forms.IntegerField(required= False,widget=forms.NumberInput(attrs={'placeholder':'Enter Roll:'}))    
