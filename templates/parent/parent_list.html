@@ -1,0 +1,75 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block content%}
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Parent Tables</h3>
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        {%if parents%}
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Parent To</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              {%for parent in parents%}
+              <tr role="row" >
+                
+                <td>{{forloop.counter}}</td>
+                <td>{{parent.name}}</td>
+                <td>{{parent.phone_no}}</td>
+                <td>{{parent.email}}</td>
+                <td>{{parent.parent_to}}</td>
+                
+                <td>
+                  <button class="btn btn-success">
+                    <a href="{%url 'parent:parent-edit' parent.name %}">
+                      <i class="fa fa-edit"></i>
+                    </a> Edit
+                  </button>
+                 <button class="btn btn-danger">
+                  <a href="{%url 'parent:parent-delete' parent.name %}" >
+                    <i class="fa fa-trash-o"></i>
+                    </a>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              
+                {%endfor%}
+    
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    {%else%}
+    <div class="card-body">
+      <h2>No Parent Found</h2>
+    </div>
+    {%endif%}
+  </div>
+  <!-- /.row -->
+{%endblock%}

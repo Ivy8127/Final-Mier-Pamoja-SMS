@@ -26,6 +26,6 @@ urlpatterns = [
     #path('teacher/', include('teacher.urls')),
     path('student/', include('student.urls')),
     #path('academic/', include('academic.urls')),
-    # path('parent/',include('parent.urls'))
+    path('parent/',include('parent.urls'))
     
 ]

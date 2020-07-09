@@ -68,14 +68,6 @@ def student_list(request):
 
 
 
-
-def student(request,student_id):
-    student = PersonalInfo.objects.get(id=student_id)
-    context = {'student':student}
-    return render(request,'student/student.html',context)
-
-
-
 def student_edit(request,reg_no):
     """Edit's the student registration form and redirects them to the student list page
 

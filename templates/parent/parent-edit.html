@@ -1,0 +1,34 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block content%}
+<h2>Parent Registration Form</h2>
+<!-- Main content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Personal Information</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form" method="POST" action="">
+              <div class="card-body">
+                {% csrf_token %}
+                {{ personal_info_form.as_p }}
+                
+              </div>
+              <div class="card card-primary">
+                
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Save Parent</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+  
+{%endblock%}

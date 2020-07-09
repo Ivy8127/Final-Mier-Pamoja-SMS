@@ -1,5 +1,5 @@
 from django.db import models
-from student.models import PersonalInfo 
+
 
 # Create your models here.
 class Personalinfo(models.Model):
@@ -35,7 +35,8 @@ class Personalinfo(models.Model):
         ('Guardian','Guardian')
     ]
     relationship_to_student = models.CharField(max_length = 50 ,choices=RELATIONSHIP, default='Mother')
-    parent_to = models.ForeignKey(PersonalInfo ,on_delete=models.CASCADE)
+    parent_to = models.CharField(max_length =100)
+    is_delete = models.BooleanField(default=False)
     
 
     def __str__(self):
