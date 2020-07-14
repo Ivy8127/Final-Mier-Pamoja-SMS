@@ -30,7 +30,7 @@ def parent_registration(request):
     
     return render(request, 'parent/parent_registration.html',context)
 
-def parent_profile(request,name):
+def parent_profile(request,parent_name):
     """Returns a student to their profile page
 
     Args:
@@ -40,7 +40,7 @@ def parent_profile(request,name):
     Returns:
         [type]: [description]
     """
-    parent = Personalinfo.objects.get(name = name)
+    parent = Personalinfo.objects.get(name = parent_name)
     context = {'parent':parent}
     return render(request,'parent/parent-profile.html',context)
 

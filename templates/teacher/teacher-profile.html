@@ -1,0 +1,79 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block content%}
+<div class="card">
+    <div class="card-header">
+        
+        <div class="row">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle"
+                         src="C:/Users/Supreme Computers/Desktop/My Django Projects/static/dist/img/user4-128x128.jpg"
+                         alt="User profile picture">
+                  </div>
+  
+        </div>
+        
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <h2 class="mx-auto">Personal Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Name                        :  {{teacher.name}}</pre>
+            <pre>Date of birth               :  {{teacher.date_of_birth}} </pre>
+            <pre>Gender                      :  {{teacher.gender}}</pre>
+            <pre>Phone number                :  {{teacher.phone_no}}</pre>
+            <pre>Email                       :  {{teacher.email}}</pre>
+            <pre>Religion                    :  {{teacher.religion}}</pre>
+            <pre>Father`s Name               : {{ teacher.father_name }}</pre>
+            <pre>Mother`s Name               : {{ teacher.mother_name }}</pre>
+            <pre>Marital Status              : {{ teacher.marital_status }}</pre>
+            <pre>Training                    : {{ teacher.training }}</pre>
+            <pre>Job                         : {{ teacher.job }}</pre>
+            <pre>Experience                  : {{ teacher.experience }}</pre>
+        </div>
+        <div class="row">
+            <h2 class="mx-auto">Training Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Institution name               :  {{teacher.training.institution_name}}</pre>
+            <pre>Year                           :  {{teacher.training.year}}</pre>
+            <pre>Duration                       :  {{teacher.training.duration}}</pre>
+            <pre>Location                       :  {{teacher.training.location}}</pre>
+
+        </div>
+        <div class="row">
+            <h2 class="mx-auto">Job Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Category               :      {{teacher.job.category}}</pre>
+            <pre>Joining Date           :      {{teacher.job.joining_date}}</pre>
+            <pre>Department             :      {{teacher.job.department}}</pre>
+            <pre>Institute Name         :      {{teacher.job.institute_name}}</pre>
+            <pre>Job designation        :      {{teacher.job.job_designation}}</pre>
+
+
+        </div>
+
+        <div class="row">
+            <h2 class="mx-auto">Experience Information</h2>
+        </div>
+        <hr>
+        <div style="font-size: 24px; margin-left: 30px;">
+            <pre>Institute Name          :     {{teacher.experience.institute_name}}</pre>
+            <pre>Designation             :     {{teacher.experience.designation}}</pre>
+            <pre>Trainer                 :     {{teacher.experience.trainer}}</pre>
+           
+
+        </div>
+
+    </div>
+</div>
+
+{%endblock%}

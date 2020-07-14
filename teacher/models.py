@@ -15,7 +15,7 @@ class JobInfo(models.Model):
     job_designation = models.ForeignKey(Designation ,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.department
+        return str(self.department)
     class Meta():
         verbose_name_plural = 'Job Information'
 
@@ -91,6 +91,7 @@ class PersonalInfo(models.Model):
     training = models.ForeignKey(TrainingInfo, on_delete=models.CASCADE , null = True)
     job = models.ForeignKey(JobInfo ,on_delete=models.CASCADE , null = True)
     date = models.DateField(auto_now_add=True)
+    is_delete = models.BooleanField(default=False)
 
     def __str__(self):
         

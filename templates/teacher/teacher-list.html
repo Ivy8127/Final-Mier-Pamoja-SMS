@@ -5,7 +5,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Parent Tables</h3>
+          <h3 class="card-title">Teacher Tables</h3>
 
           <div class="card-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
@@ -18,41 +18,41 @@
           </div>
         </div>
         <!-- /.card-header -->
-        {%if parents%}
+        {%if teacher%}
         <div class="card-body table-responsive p-0">
           <table class="table table-hover text-nowrap">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Phone Number</th>
+                <th>Gender</th>
                 <th>Email</th>
-                <th>Parent To</th>
-                
+                <th>Date</th>
+      
               </tr>
             </thead>
             <tbody>
-              {%for parent in parents%}
+              {%for teacher in teacher%}
               <tr role="row" >
                 
                 <td>{{forloop.counter}}</td>
-                <td>{{parent.name}}</td>
-                <td>{{parent.phone_no}}</td>
-                <td>{{parent.email}}</td>
-                <td>{{parent.parent_to}}</td>
-                
+                <td>{{teacher.name}}</td>
+                <td>{{teacher.gender}}</td>
+                <td>{{teacher.email}}</td>
+                <td>{{teacher.date}}</td>
                 <td>
-                  <button class="btn btn-primary">
-                    <a href="{%url 'parent:parent-profile' parent.name %}">
-                    </a> Profile
-                  </button>
+                    <a class="btn btn-success" href="{% url 'teacher:teacher-profile' teacher.id %}">
+                        <i class="fa fa-search-plus"></i>
+                    </a>
+
                   <button class="btn btn-success">
-                    <a href="{%url 'parent:parent-edit' parent.name %}">
+                    <a href="{%url 'teacher:teacher-edit' teacher.id %}">
                       <i class="fa fa-edit"></i>
                     </a> Edit
                   </button>
+
                  <button class="btn btn-danger">
-                  <a href="{%url 'parent:parent-delete' parent.name %}" >
+                  <a href="{%url  'teacher:teacher-delete' teacher.id %}" >
                     <i class="fa fa-trash-o"></i>
                     </a>
                     Delete
@@ -71,7 +71,7 @@
     </div>
     {%else%}
     <div class="card-body">
-      <h2>No Parent Found</h2>
+      <h2>No Teacher Found</h2>
     </div>
     {%endif%}
   </div>
