@@ -1,4 +1,4 @@
-"""Defines the url patterns for the students app
+"""Defines the url patterns for the parents app
     """
 
 from django.urls import path
