@@ -1,4 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
+
+
 
 # Create your models here.
 class ClassInfo(models.Model):
@@ -13,7 +18,7 @@ class ClassInfo(models.Model):
     name = models.CharField(max_length =50,unique = True)
     display_name = models.CharField(max_length = 15, unique = True)
     date = models.DateField(auto_now_add=True)
-    capacity = models.IntegerField()
+    
 
     def __str__(self):
         """Returns the name of a class
@@ -21,7 +26,7 @@ class ClassInfo(models.Model):
         Returns:
             [type] -- [description]
         """
-        return self.display_name
+        return self.name
     class Meta():
         verbose_name_plural = 'ClassInfo'
 
