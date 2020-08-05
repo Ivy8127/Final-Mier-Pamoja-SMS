@@ -42,21 +42,20 @@
                 <td>{{parent.parent_to}}</td>
                 
                 <td>
-                  <button class="btn btn-primary">
-                    <a href="{%url 'parent:parent-profile' parent.name %}">
-                    </a> Profile
-                  </button>
-                  <button class="btn btn-success">
-                    <a href="{%url 'parent:parent-edit' parent.name %}">
+                  
+                    <a class="btn btn-primary"href="{%url 'parent:parent-profile' parent.name %}">
+                      <i class="fa fa-search-plus "></i>
+                    </a> 
+                  
+                  
+                    <a class="btn btn-success"href="{%url 'parent:parent-edit' parent.name %}">
                       <i class="fa fa-edit"></i>
-                    </a> Edit
-                  </button>
-                 <button class="btn btn-danger">
-                  <a href="{%url 'parent:parent-delete' parent.name %}" >
-                    <i class="fa fa-trash-o"></i>
                     </a>
-                    Delete
-                  </button>
+                
+                  <a class="btn btn-danger" href="{%url 'parent:parent-delete' parent.name %}" >
+                    <i class="fa fa-trash"></i>
+                    </a>
+                   
                 </td>
               </tr>
               

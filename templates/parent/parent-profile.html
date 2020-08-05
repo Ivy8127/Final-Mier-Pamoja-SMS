@@ -1,40 +1,44 @@
-{%extends 'base/base.html'%}
-{%load static%}
-{%block content%}
-<div class="card">
+
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="card">
+    
     <div class="card-header">
-        
-        <div class="row">
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle"
-                         src="C:/Users/Supreme Computers/Desktop/My Django Projects/static/dist/img/user4-128x128.jpg"
-                         alt="User profile picture">
-                  </div>
-  
-        </div>
-        
+      <div class="row">
+        {%if parent.photo %}
+        <img style="height:200px; width:200px; border-radius:50%; margin:auto ;background-size:cover"  src="{{ parent.get_photo_url}}" alt="Photo">
+      {% else %}
+      <img style="height:200px; width:200px; border-radius:50%; margin:auto ;background-size:cover"  src="{%static 'images/default.jpg'%}" alt="Photo">
+        {% endif %}
+      </div>
     </div>
+    
     <div class="card-body">
+
+      <div class="personal_information">
         <div class="row">
-            <h2 class="mx-auto">Personal Information</h2>
+          <h2 class="mx-auto">Personal Information</h2>
         </div>
         <hr>
-        <div style="font-size: 24px; margin-left: 30px;">
+        <div class="row">
+          <div style="font-size:24px; margin-left: 30px">
             <pre>Name                        :  {{parent.name}}</pre>
             <pre>Date of birth               :  {{parent.date_of_birth}} </pre>
             <pre>Gender                      :  {{parent.gender}}</pre>
             <pre>Phone number                :  {{parent.phone_no}}</pre>
             <pre>Email                       :  {{parent.email}}</pre>
             <pre>Religion                    :  {{parent.religion}}</pre>
-            <pre>Birth Certificate Number    :  {{parent.birth_certificate_no}}</pre>
             <pre>Relationship to student     :  {{parent.relationship_to_student}}</pre>
-            <pre>Parent to                      {{parent.parent_to}}</pre>
+            <pre>Parent to                   :  {{parent.parent_to}}</pre>
+          </div>
         </div>
+      </div>
+
+      
+
+      
 
     </div>
-</div>
-
-{%endblock%}
+  </div>
+{% endblock %}
