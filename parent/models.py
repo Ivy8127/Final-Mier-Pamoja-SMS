@@ -12,7 +12,7 @@ class Personalinfo(models.Model):
         [type]: [description]
     """
     name = models.CharField(max_length = 100)
-    photo = models.ImageField(upload_to = 'parent_photos/',blank = True)
+    photo = models.ImageField(upload_to = 'parent-photos/',blank = True,null =True)
     date_of_birth = models.DateField()
     gender_choices =(
         ('male','Male'),
@@ -47,6 +47,13 @@ class Personalinfo(models.Model):
             [type] -- [description]
         """
         return self.name
+
+    @property
+    def get_photo_url(self):
+        if self.photo and hasattr(self.photo ,'url'):
+            return self.photo.url    
+       
+    
 
     class Meta:
         verbose_name_plural = 'Personal Information'
