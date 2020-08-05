@@ -10,11 +10,11 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Personal Information</h3>
+               <h3 class="card-title">Personal Information</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{%url 'teacher:teacher-registration'%}">
+            <form role="form" method="POST" action="{%url 'teacher:teacher-registration'%}"enctype="multipart/form-data">
               <div class="card-body">
                 {% csrf_token %}
                 {{ form.as_p }}

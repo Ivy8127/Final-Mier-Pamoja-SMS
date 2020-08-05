@@ -41,22 +41,19 @@
                 <td>{{teacher.email}}</td>
                 <td>{{teacher.date}}</td>
                 <td>
-                    <a class="btn btn-success" href="{% url 'teacher:teacher-profile' teacher.id %}">
+                    <a class="btn btn-info" href="{% url 'teacher:teacher-profile' teacher.id %}">
                         <i class="fa fa-search-plus"></i>
                     </a>
 
-                  <button class="btn btn-success">
-                    <a href="{%url 'teacher:teacher-edit' teacher.id %}">
+                  
+                    <a class="btn btn-success" href="{%url 'teacher:teacher-edit' teacher.id %}">
                       <i class="fa fa-edit"></i>
-                    </a> Edit
-                  </button>
+                    </a> 
 
-                 <button class="btn btn-danger">
-                  <a href="{%url  'teacher:teacher-delete' teacher.id %}" >
-                    <i class="fa fa-trash-o"></i>
+                 
+                  <a class="btn btn-danger" href="{%url  'teacher:teacher-delete' teacher.id %}" >
+                    <i class="fa fa-trash"></i>
                     </a>
-                    Delete
-                  </button>
                 </td>
               </tr>
               
