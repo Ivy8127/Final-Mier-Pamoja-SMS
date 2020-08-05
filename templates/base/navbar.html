@@ -1,4 +1,11 @@
 {%load static%}
+<style>
+  .hello-msg{
+    font-size: 15px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
     <!-- Left navbar links -->
@@ -25,21 +32,14 @@
         </div>
       </div>
     </form>
-    <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Settings
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-lock"></i>Logout</a>
-          </div>
-        </li>
-    </li> 
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      
+      
     </ul>
+    
+  <span class="hello-msg">Hello, {{request.user}}</span>
+  <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
 
     
     {%block navbar%}
