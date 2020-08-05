@@ -38,7 +38,7 @@ class JobInfoForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'category': forms.Select(attrs={'class': 'form-control'}),
-            'joning_date': forms.TextInput(attrs={'class': 'form-control'}),
+            'joining_date': forms.TextInput(attrs={'class': 'form-control'}),
             'institute_name': forms.TextInput(attrs={'class': 'form-control'}),
             'job_designation': forms.Select(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),

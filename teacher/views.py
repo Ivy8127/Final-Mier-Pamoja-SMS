@@ -24,7 +24,7 @@ def teacher_registration(request):
             personal_info.job = job_info
             personal_info.experience = experience_info
             personal_info.save()
-            return redirect('teacher-list')
+            return redirect('teacher:teacher-list')
 
     context = {
         'form': form,
@@ -56,7 +56,7 @@ def teacher_delete(request, teacher_id):
     teacher = PersonalInfo.objects.get(id=teacher_id)
     teacher.is_delete = True
     teacher.save()
-    return redirect('teacher-list')
+    return redirect('teacher:teacher-list')
 
 
 
@@ -80,7 +80,7 @@ def teacher_edit(request, teacher_id):
             personal_info.job = job_info
             personal_info.experience = experience_info
             personal_info.save()
-            return redirect('teacher-list')
+            return redirect('teacher:teacher-list')
     context = {
         'form': form,
         'training_form': training_form,

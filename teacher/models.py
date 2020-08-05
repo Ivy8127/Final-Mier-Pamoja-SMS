@@ -59,7 +59,7 @@ class ExperienceInfo(models.Model):
 
 class PersonalInfo(models.Model):
     name = models.CharField(max_length = 100)
-    photo = models.ImageField(upload_to = 'teacher_photos/',blank = True)
+    photo = models.ImageField(upload_to = 'teacher_photos/',blank = True ,null= True, default="defaultuser.png")
     date_of_birth = models.DateField()
     gender_status = (
         ('Male','Male'),
@@ -101,6 +101,13 @@ class PersonalInfo(models.Model):
             [type] -- [description]
         """
         return self.name
+
+    @property
+    def get_photo_url(self):
+        if self.photo and hasattr(self.photo ,'url'):
+            return self.photo.url    
+        else:
+            return "teacher_photos/defaultuser.png" 
 
     class Meta:
         verbose_name_plural = 'Personal Information'
