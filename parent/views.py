@@ -77,7 +77,7 @@ def parent_edit(request,parent_name):
     
 #POST METHOD = FILL IT WITH DATA
     if request.method == 'POST':
-        personal_info_form = ParentPersonalInfoForm(request.POST,instance=parent)
+        personal_info_form = ParentPersonalInfoForm(request.POST,request.FILES,instance=parent)
         
 
         if personal_info_form.is_valid():
