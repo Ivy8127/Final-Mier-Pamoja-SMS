@@ -22,7 +22,7 @@ class PersonalInfoForm(forms.ModelForm):
 class AcademicInfoForm(forms.ModelForm):
     class Meta:
         model = AcademicInfo
-        exclude = ['date','personalInfo','status','is_delete']
+        exclude = ['date','status','is_delete']
         widgets = {
             'class_info': forms.Select(attrs={'class':'form-control'}),
             
@@ -42,3 +42,7 @@ class StudentEnrollForm(forms.Form):
 class SearchEnrolledStudentForm(forms.Form):
     reg_class = forms.ModelChoiceField(queryset=ClassRegistration.objects.all())
     roll_no = forms.IntegerField(required= False,widget=forms.NumberInput(attrs={'placeholder':'Enter Roll:'}))    
+
+class StudentSearchForm(forms.Form):
+    class_info = forms.ModelChoiceField(required=False, queryset=ClassInfo.objects.all())
+    registration_no = forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'placeholder': 'Registration No', 'aria-controls': 'DataTables_Table_0'}))  

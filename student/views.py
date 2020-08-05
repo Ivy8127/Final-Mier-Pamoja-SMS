@@ -85,8 +85,8 @@ def student_edit(request,reg_no):
 
 #POST METHOD = FILL IT WITH DATA
     if request.method == 'POST':
-        personal_info_form = PersonalInfoForm(request.POST,instance=student.personalInfo)
-        academic_info_form = AcademicInfoForm(request.POST,instance=student)
+        personal_info_form = PersonalInfoForm(request.POST,request.FILES,instance=student.personalInfo)
+        academic_info_form = AcademicInfoForm(request.POST,request.FILES,instance=student)
 
         if personal_info_form.is_valid() and academic_info_form.is_valid():
             s1=personal_info_form.save()
@@ -186,5 +186,34 @@ def enrolled_student_list(request):
         'forms':forms,
         'student': student
     }
+
+
+def student_search(request):
+    forms = StudentSearchForm()
+    cls_name = request.GET.get('class_info', None)
+    reg_no = request.GET.get('registration_no', None)
+    if cls_name:
+        student = AcademicInfo.objects.filter(class_info=cls_name)
+        if reg_no:
+            student = student.filter(registration_no=reg_no)
+        context = {
+            'forms': forms,
+            'student': student
+        }
+        return render(request, 'student/student-search.html', context)
+    else:
+        student = AcademicInfo.objects.filter(registration_no=reg_no)
+        context = {
+            'forms': forms,
+            'student': student
+        }
+        return render(request, 'student/student-search.html', context)
+    context = {
+            'forms': forms,
+            'student': student
+        }
+    return render(request, 'student/student-search.html', context)
+
+   
 
     return render(request,'student/enrolled-student-list.html',context)
